@@ -1,8 +1,15 @@
 #!/bin/sh
 
 # TeX
-TLMGR='/usr/local/texlive/2019/bin/x86_64-linux/tlmgr'
-if [ -e $TLMGR ]; then
+for TLMGR in /usr/local/texlive/2019/bin/{x86_64-linux,x86_64-darwin}/tlmgr; do
+  if [ -f $TLMGR -a -x $TLMGR ]; then
+    break
+  else
+    TLMGR=''
+  fi
+done
+if [ -n "$TLMGR" ]; then
+  echo "Found \`tlmgr' at $TLMGR"
   sudo sh -c "$TLMGR update --self; $TLMGR update --all"
 fi
 
