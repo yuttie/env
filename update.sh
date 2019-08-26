@@ -42,7 +42,7 @@ if which rustup >/dev/null 2>&1; then
   rustup component add rls rust-analysis rust-src
 fi
 
-CARGO_PACKAGES_FOR_STABLE='ripgrep xsv exa bat oxipng'
+CARGO_PACKAGES_FOR_STABLE='ripgrep fd xsv exa bat oxipng'
 CARGO_PACKAGES_FOR_NIGHTLY='racer'
 if which cargo >/dev/null 2>&1; then
   cargo uninstall $CARGO_PACKAGES_FOR_STABLE
