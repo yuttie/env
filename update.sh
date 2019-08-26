@@ -14,7 +14,7 @@ if [ -n "$TLMGR" ]; then
 fi
 
 # Python
-PIP3_PACKAGES='pip pipenv awscli pynvim i3-py isort jedi python-language-server pyls-mypy pyls-isort'
+PIP3_PACKAGES='pip pipenv awscli pynvim i3-py'
 if which pip3 >/dev/null 2>&1; then
   pip3 install --user --upgrade $PIP3_PACKAGES
 fi
