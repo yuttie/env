@@ -20,7 +20,7 @@ if which pip3 >/dev/null 2>&1; then
 fi
 
 # Node.js
-NPM_PACKAGES='npm vsce heroku neovim'
+NPM_PACKAGES='npm vsce heroku neovim svgo live-server backslide'
 if which npm >/dev/null 2>&1; then
   for p in $NPM_PACKAGES; do
     npm install -g $p
