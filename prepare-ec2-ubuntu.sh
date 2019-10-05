@@ -1,5 +1,6 @@
 #!/bin/sh
 REMOTE=$1
+ssh $REMOTE sudo add-apt-repository ppa:neovim-ppa/stable
 ssh $REMOTE sudo apt update
 ssh $REMOTE sudo apt upgrade
 ssh $REMOTE sudo apt install neovim tmux python3.7{,-dev} python3-distutils build-essential nodejs
