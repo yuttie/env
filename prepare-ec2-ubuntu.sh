@@ -3,7 +3,7 @@ REMOTE=$1
 ssh $REMOTE sudo add-apt-repository ppa:neovim-ppa/stable
 ssh $REMOTE sudo apt update
 ssh $REMOTE sudo apt upgrade
-ssh $REMOTE sudo apt install neovim tmux python3.7{,-dev} python3-distutils build-essential nodejs
+ssh $REMOTE sudo apt install neovim tmux python3.7{,-dev} python3-distutils build-essential nodejs inotify-tools
 ssh $REMOTE curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ssh $REMOTE python3.7 get-pip.py --user
 ssh $REMOTE pip3.7 install --user --upgrade pip pipenv pynvim neovim-remote
