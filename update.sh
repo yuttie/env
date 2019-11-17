@@ -1,6 +1,6 @@
 #!/bin/sh
 
-targets=${@:-tex python nodejs julia rust zsh}
+targets=${@:-tex python nodejs julia rust zsh lensfun}
 
 is_specified() {
   for t in $targets; do
@@ -81,4 +81,9 @@ if is_specified zsh; then
     antibody bundle < ~/zdotdir/.zsh_plugins.txt > ~/.zsh_plugins.sh
     antibody update
   fi
+fi
+
+# Lensfun
+if is_specified lensfun; then
+  lensfun-update-data
 fi
