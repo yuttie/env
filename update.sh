@@ -28,7 +28,7 @@ fi
 
 # Python
 if is_specified python; then
-  PIP3_PACKAGES='pip pipenv awscli pynvim i3-py'
+  PIP3_PACKAGES='pip pipenv awscli pynvim i3-py neovim-remote'
   if which pip3 >/dev/null 2>&1; then
     pip3 install --user --upgrade --force-reinstall $PIP3_PACKAGES
   fi
