@@ -36,7 +36,7 @@ fi
 
 # Node.js
 if is_specified nodejs; then
-  NPM_PACKAGES='npm vsce heroku neovim svgo live-server backslide'
+  NPM_PACKAGES='npm yarn vsce heroku neovim svgo live-server backslide @vue/cli'
   if which npm >/dev/null 2>&1; then
     for p in $NPM_PACKAGES; do
       npm install -g $p
