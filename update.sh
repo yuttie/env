@@ -36,11 +36,9 @@ fi
 
 # Node.js
 if is_specified nodejs; then
-  NPM_PACKAGES='npm yarn vsce heroku neovim svgo live-server backslide @vue/cli vuepress'
-  if which npm >/dev/null 2>&1; then
-    for p in $NPM_PACKAGES; do
-      npm install -g $p
-    done
+  NPM_PACKAGES='vsce heroku neovim svgo live-server backslide @vue/cli vuepress'
+  if which yarn >/dev/null 2>&1; then
+    yarn global add $NPM_PACKAGES
   fi
 fi
 
