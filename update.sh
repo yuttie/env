@@ -32,6 +32,9 @@ if is_specified python; then
   if which pip3 >/dev/null 2>&1; then
     pip3 install --user --upgrade --force-reinstall $PIP3_PACKAGES
   fi
+  if which poetry >/dev/null 2>&1; then
+    poetry self update
+  fi
 fi
 
 # Node.js
