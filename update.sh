@@ -62,6 +62,7 @@ if is_specified rust; then
     rustup update
     rustup component add rls rust-analysis rust-src
     rustup target add x86_64-unknown-linux-musl
+    rustup toolchain add nightly
   fi
 
   CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng'
