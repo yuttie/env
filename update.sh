@@ -60,12 +60,12 @@ if is_specified rust; then
   if which rustup >/dev/null 2>&1; then
     rustup self update
     rustup update
-    rustup component add rls rust-analysis rust-src
+    rustup component add rls rust-analysis rust-src clippy rustfmt
     rustup target add x86_64-unknown-linux-musl
     rustup toolchain add nightly
   fi
 
-  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng'
+  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz'
   CARGO_PACKAGES_FOR_NIGHTLY='racer'
   if which cargo >/dev/null 2>&1; then
     cargo uninstall $CARGO_PACKAGES_FOR_STABLE
