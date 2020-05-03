@@ -1,6 +1,6 @@
 #!/bin/sh
 
-targets=${@:-tex python nodejs julia rust zsh lensfun}
+targets=${@:-tex python nodejs julia go rust zsh lensfun}
 
 is_specified() {
   for t in $targets; do
@@ -51,6 +51,16 @@ if is_specified julia; then
   if which julia >/dev/null 2>&1; then
     for p in $JULIA_PACKAGES; do
       julia --eval "using Pkg; Pkg.add(\"$p\")"
+    done
+  fi
+fi
+
+# Go
+if is_specified go; then
+  GO_PACKAGES='github.com/dinedal/textql/...'
+  if which go >/dev/null 2>&1; then
+    for p in $GO_PACKAGES; do
+      go get -u "$p"
     done
   fi
 fi
