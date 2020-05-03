@@ -28,7 +28,7 @@ fi
 
 # Python
 if is_specified python; then
-  PIP3_PACKAGES='pip pipenv awscli pynvim i3-py neovim-remote'
+  PIP3_PACKAGES='pip pipenv awscli pynvim i3-py neovim-remote mycli litecli'
   if which pip3 >/dev/null 2>&1; then
     pip3 install --user --upgrade --force-reinstall $PIP3_PACKAGES
   fi
@@ -57,7 +57,7 @@ fi
 
 # Go
 if is_specified go; then
-  GO_PACKAGES='github.com/dinedal/textql/...'
+  GO_PACKAGES='github.com/dinedal/textql/... github.com/simeji/jid/cmd/jid github.com/tomnomnom/gron github.com/junegunn/fzf'
   if which go >/dev/null 2>&1; then
     for p in $GO_PACKAGES; do
       go get -u "$p"
@@ -75,7 +75,7 @@ if is_specified rust; then
     rustup toolchain add nightly
   fi
 
-  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz'
+  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz procs broot hyperfine sd'
   CARGO_PACKAGES_FOR_NIGHTLY='racer'
   if which cargo >/dev/null 2>&1; then
     cargo uninstall $CARGO_PACKAGES_FOR_STABLE
