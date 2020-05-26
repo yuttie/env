@@ -39,7 +39,7 @@ fi
 
 # Node.js
 if is_specified nodejs; then
-  YARN_PACKAGES='vsce heroku neovim svgo live-server backslide @vue/cli vuepress'
+  YARN_PACKAGES='vsce heroku neovim svgo live-server backslide decktape @vue/cli vuepress'
   if which yarn >/dev/null 2>&1; then
     yarn global add $YARN_PACKAGES
     yarn global upgrade
