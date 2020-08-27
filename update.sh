@@ -39,7 +39,7 @@ fi
 
 # Node.js
 if is_specified nodejs; then
-  YARN_PACKAGES='vsce heroku neovim svgo live-server backslide decktape @vue/cli vuepress'
+  YARN_PACKAGES='vsce heroku neovim svgo live-server backslide decktape @vue/cli vuepress docsify-cli tldr'
   if which yarn >/dev/null 2>&1; then
     yarn global add $YARN_PACKAGES
     yarn global upgrade
@@ -76,7 +76,7 @@ if is_specified rust; then
     rustup toolchain add nightly
   fi
 
-  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz procs broot hyperfine sd'
+  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz procs broot hyperfine sd teip evcxr_repl'
   CARGO_PACKAGES_FOR_NIGHTLY='racer'
   if which cargo >/dev/null 2>&1; then
     cargo uninstall $CARGO_PACKAGES_FOR_STABLE
