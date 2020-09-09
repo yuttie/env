@@ -34,6 +34,8 @@ if is_specified python; then
   fi
   if which poetry >/dev/null 2>&1; then
     poetry self update
+    poetry completions fish > ~/.config/fish/completions/poetry.fish
+    poetry completions zsh > ~/.zfunc/_poetry
   fi
 fi
 
