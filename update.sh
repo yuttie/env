@@ -1,6 +1,6 @@
 #!/bin/sh
 
-targets=${@:-tex python nodejs julia go rust zsh lensfun}
+targets=${@:-tex python nodejs julia go rust fish zsh lensfun}
 
 is_specified() {
   for t in $targets; do
@@ -87,6 +87,13 @@ if is_specified rust; then
     # Run `rustup toolchain install nightly` in advance
     cargo +nightly uninstall $CARGO_PACKAGES_FOR_NIGHTLY
     cargo +nightly install $CARGO_PACKAGES_FOR_NIGHTLY
+  fi
+fi
+
+# Fish
+if is_specified fish; then
+  if which fish >/dev/null 2>&1; then
+    fish -c fisher
   fi
 fi
 
