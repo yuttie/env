@@ -88,6 +88,10 @@ if is_specified rust; then
     cargo +nightly uninstall $CARGO_PACKAGES_FOR_NIGHTLY
     cargo +nightly install $CARGO_PACKAGES_FOR_NIGHTLY
   fi
+
+  # Other Rust-related programs
+  curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+  chmod +x ~/.local/bin/rust-analyzer
 fi
 
 # Fish
