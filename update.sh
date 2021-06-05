@@ -81,12 +81,16 @@ if is_specified rust; then
   CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz procs broot hyperfine sd teip evcxr_repl monolith starship deno'
   CARGO_PACKAGES_FOR_NIGHTLY=''
   if which cargo >/dev/null 2>&1; then
-    cargo uninstall --quiet $CARGO_PACKAGES_FOR_STABLE
-    cargo install   --quiet $CARGO_PACKAGES_FOR_STABLE
+    if [ -n "$CARGO_PACKAGES_FOR_STABLE" ]; then
+      cargo uninstall --quiet $CARGO_PACKAGES_FOR_STABLE
+      cargo install   --quiet $CARGO_PACKAGES_FOR_STABLE
+    fi
 
     # Run `rustup toolchain install nightly` in advance
-    cargo +nightly uninstall --quiet $CARGO_PACKAGES_FOR_NIGHTLY
-    cargo +nightly install   --quiet $CARGO_PACKAGES_FOR_NIGHTLY
+    if [ -n "$CARGO_PACKAGES_FOR_NIGHTLY" ]; then
+      cargo +nightly uninstall --quiet $CARGO_PACKAGES_FOR_NIGHTLY
+      cargo +nightly install   --quiet $CARGO_PACKAGES_FOR_NIGHTLY
+    fi
   fi
 
   # Other Rust-related programs
