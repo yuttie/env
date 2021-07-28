@@ -60,7 +60,7 @@ fi
 
 # Go
 if is_specified go; then
-  GO_PACKAGES='github.com/dinedal/textql/... github.com/simeji/jid/cmd/jid github.com/tomnomnom/gron github.com/junegunn/fzf'
+  GO_PACKAGES='github.com/dinedal/textql/... github.com/simeji/jid/cmd/jid github.com/tomnomnom/gron github.com/itchyny/mmv/cmd/mmv'
   if which go >/dev/null 2>&1; then
     for p in $GO_PACKAGES; do
       go get -u "$p"
