@@ -82,8 +82,10 @@ if is_specified rust; then
   CARGO_PACKAGES_FOR_NIGHTLY=''
   if which cargo >/dev/null 2>&1; then
     if [ -n "$CARGO_PACKAGES_FOR_STABLE" ]; then
-      cargo uninstall --quiet $CARGO_PACKAGES_FOR_STABLE
-      cargo install   --quiet $CARGO_PACKAGES_FOR_STABLE
+      for package in $CARGO_PACKAGES_FOR_STABLE; do
+        cargo uninstall --quiet $package
+        cargo install   --quiet $package
+      done
     fi
 
     # Run `rustup toolchain install nightly` in advance
