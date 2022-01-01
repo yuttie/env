@@ -41,7 +41,7 @@ fi
 
 # Node.js
 if is_specified nodejs; then
-  YARN_PACKAGES='vsce heroku neovim svgo live-server backslide decktape @vue/cli vuepress docsify-cli tldr'
+  YARN_PACKAGES='pyright vsce heroku neovim svgo live-server backslide decktape @vue/cli vuepress docsify-cli tldr'
   if command -v yarn >/dev/null 2>&1; then
     yarn global add $YARN_PACKAGES
     yarn global upgrade
