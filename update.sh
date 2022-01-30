@@ -78,7 +78,7 @@ if is_specified rust; then
     rustup toolchain add nightly
   fi
 
-  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz procs broot hyperfine sd teip evcxr_repl monolith starship'
+  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel procs broot hyperfine sd teip evcxr_repl starship'
   CARGO_PACKAGES_FOR_STABLE_J1='deno'
   CARGO_PACKAGES_FOR_NIGHTLY=''
   if command -v cargo >/dev/null 2>&1; then
