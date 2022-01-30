@@ -78,14 +78,18 @@ if is_specified rust; then
     rustup toolchain add nightly
   fi
 
-  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz procs broot hyperfine sd teip evcxr_repl monolith starship deno'
+  CARGO_PACKAGES_FOR_STABLE='ripgrep fd-find xsv exa bat oxipng pastel cargo-fuzz procs broot hyperfine sd teip evcxr_repl monolith starship'
+  CARGO_PACKAGES_FOR_STABLE_J1='deno'
   CARGO_PACKAGES_FOR_NIGHTLY=''
   if command -v cargo >/dev/null 2>&1; then
     if [ -n "$CARGO_PACKAGES_FOR_STABLE" ]; then
-      for package in $CARGO_PACKAGES_FOR_STABLE; do
-        cargo uninstall --quiet $package
-        cargo install   --quiet $package
-      done
+      cargo uninstall $CARGO_PACKAGES_FOR_STABLE
+      cargo install   $CARGO_PACKAGES_FOR_STABLE
+    fi
+
+    if [ -n "$CARGO_PACKAGES_FOR_STABLE_J1" ]; then
+      cargo uninstall   $CARGO_PACKAGES_FOR_STABLE_J1
+      cargo install -j1 $CARGO_PACKAGES_FOR_STABLE_J1
     fi
 
     # Run `rustup toolchain install nightly` in advance
@@ -93,6 +97,10 @@ if is_specified rust; then
       cargo +nightly uninstall --quiet $CARGO_PACKAGES_FOR_NIGHTLY
       cargo +nightly install   --quiet $CARGO_PACKAGES_FOR_NIGHTLY
     fi
+
+    # Packages which need special treatment
+    cargo uninstall texlab
+    cargo install --git https://github.com/latex-lsp/texlab.git --locked
   fi
 
   # Other Rust-related programs
