@@ -84,23 +84,23 @@ if is_specified rust; then
   if command -v cargo >/dev/null 2>&1; then
     if [ -n "$CARGO_PACKAGES_FOR_STABLE" ]; then
       cargo uninstall $CARGO_PACKAGES_FOR_STABLE
-      cargo install   $CARGO_PACKAGES_FOR_STABLE
+      cargo install --locked $CARGO_PACKAGES_FOR_STABLE
     fi
 
     if [ -n "$CARGO_PACKAGES_FOR_STABLE_J1" ]; then
       cargo uninstall   $CARGO_PACKAGES_FOR_STABLE_J1
-      cargo install -j1 $CARGO_PACKAGES_FOR_STABLE_J1
+      cargo install --locked -j1 $CARGO_PACKAGES_FOR_STABLE_J1
     fi
 
     # Run `rustup toolchain install nightly` in advance
     if [ -n "$CARGO_PACKAGES_FOR_NIGHTLY" ]; then
       cargo +nightly uninstall --quiet $CARGO_PACKAGES_FOR_NIGHTLY
-      cargo +nightly install   --quiet $CARGO_PACKAGES_FOR_NIGHTLY
+      cargo +nightly install --locked --quiet $CARGO_PACKAGES_FOR_NIGHTLY
     fi
 
     # Packages which need special treatment
     cargo uninstall texlab
-    cargo install --git https://github.com/latex-lsp/texlab.git --locked
+    cargo install --locked --git https://github.com/latex-lsp/texlab.git
   fi
 
   # Other Rust-related programs
