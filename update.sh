@@ -28,7 +28,7 @@ fi
 
 # Python
 if is_specified python; then
-  PIP3_PACKAGES='pynvim i3-py neovim-remote mycli litecli'
+  PIP3_PACKAGES='i3-py'
   if command -v pip3 >/dev/null 2>&1; then
     pip3 install --user --upgrade --force-reinstall --use-feature=2020-resolver $PIP3_PACKAGES
   fi
