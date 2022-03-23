@@ -30,7 +30,7 @@ fi
 if is_specified python; then
   PIP3_PACKAGES='i3-py'
   if command -v pip3 >/dev/null 2>&1; then
-    pip3 install --user --upgrade --force-reinstall --use-feature=2020-resolver $PIP3_PACKAGES
+    pip3 install --user --upgrade --force-reinstall $PIP3_PACKAGES
   fi
   if command -v poetry >/dev/null 2>&1; then
     poetry self update
