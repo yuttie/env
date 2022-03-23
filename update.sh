@@ -45,6 +45,7 @@ if is_specified nodejs; then
   if command -v yarn >/dev/null 2>&1; then
     yarn global add $YARN_PACKAGES
     yarn global upgrade
+    rm -fv $HOME/.yarn/bin/watch
   fi
 fi
 
