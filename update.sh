@@ -111,7 +111,7 @@ fi
 # Fish
 if is_specified fish; then
   if command -v fish >/dev/null 2>&1; then
-    fish -c fisher
+    fish -c 'fisher update'
   fi
 fi
 
