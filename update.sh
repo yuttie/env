@@ -74,7 +74,7 @@ if is_specified rust; then
   if command -v rustup >/dev/null 2>&1; then
     rustup self update
     rustup update
-    rustup component add rls rust-analysis rust-src clippy rustfmt
+    rustup component add rust-src clippy rustfmt
     rustup target add x86_64-unknown-linux-musl
     rustup toolchain add nightly
   fi
