@@ -74,10 +74,11 @@ if is_specified rust; then
   if command -v rustup >/dev/null 2>&1; then
     rustup self update
     rustup update
-    rustup component add rust-src clippy rustfmt
+    rustup toolchain add nightly
     rustup target add x86_64-unknown-linux-musl
     rustup target add wasm32-unknown-unknown
-    rustup toolchain add nightly
+    rustup component add rust-analyzer rust-src clippy rustfmt
+    rustup component add rustfmt --toolchain nightly
   fi
 
   CARGO_PACKAGES_FOR_STABLE='wasm-pack cargo-generate oxipng pastel procs broot sd teip evcxr_repl drill pueue tealdeer bandwhich xh py-spy ripgrep_all rust-script zellij'
