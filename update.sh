@@ -30,7 +30,9 @@ fi
 if is_specified python; then
   PIPX_PACKAGES='poetry jedi-language-server maturin'
   if command -v pipx >/dev/null 2>&1; then
-    pipx install $PIPX_PACKAGES
+    for p in $PIPX_PACKAGES; do
+      pipx install $p
+    done
     pipx upgrade-all
   fi
   if command -v poetry >/dev/null 2>&1; then
