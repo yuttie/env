@@ -32,13 +32,12 @@ if is_specified python; then
   if command -v pip3 >/dev/null 2>&1; then
     pip3 install --user --upgrade --force-reinstall $PIP3_PACKAGES
   fi
-  PIPX_PACKAGES='jedi-language-server maturin'
+  PIPX_PACKAGES='poetry jedi-language-server maturin'
   if command -v pipx >/dev/null 2>&1; then
     pipx install $PIPX_PACKAGES
     pipx upgrade-all
   fi
   if command -v poetry >/dev/null 2>&1; then
-    pipx upgrade poetry
     poetry completions fish > ~/.config/fish/completions/poetry.fish
     poetry completions zsh > ~/.zfunc/_poetry
   fi
