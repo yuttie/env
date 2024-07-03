@@ -28,10 +28,6 @@ fi
 
 # Python
 if is_specified python; then
-  PIP3_PACKAGES='i3-py'
-  if command -v pip3 >/dev/null 2>&1; then
-    pip3 install --user --upgrade --force-reinstall $PIP3_PACKAGES
-  fi
   PIPX_PACKAGES='poetry jedi-language-server maturin'
   if command -v pipx >/dev/null 2>&1; then
     pipx install $PIPX_PACKAGES
