@@ -38,7 +38,7 @@ if is_specified python; then
     pipx upgrade-all
   fi
   if command -v poetry >/dev/null 2>&1; then
-    poetry self update
+    pipx upgrade poetry
     poetry completions fish > ~/.config/fish/completions/poetry.fish
     poetry completions zsh > ~/.zfunc/_poetry
   fi
