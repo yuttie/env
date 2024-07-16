@@ -93,7 +93,7 @@ if is_specified rust; then
     fi
 
     if [ -n "$CARGO_PACKAGES_FOR_STABLE_J1" ]; then
-      cargo uninstall   $CARGO_PACKAGES_FOR_STABLE_J1
+      cargo uninstall $CARGO_PACKAGES_FOR_STABLE_J1
       cargo install --locked -j1 $CARGO_PACKAGES_FOR_STABLE_J1
     fi
 
