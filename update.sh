@@ -43,7 +43,7 @@ fi
 
 # Node.js
 if is_specified nodejs; then
-  YARN_PACKAGES='pyright bash-language-server vscode-langservers-extracted dockerfile-language-server-nodejs sql-language-server typescript-language-server vim-language-server vls vsce neovim svgo live-server backslide decktape @vue/cli vuepress docsify-cli'
+  YARN_PACKAGES='pyright bash-language-server vscode-langservers-extracted dockerfile-language-server-nodejs sql-language-server typescript-language-server vim-language-server vls vsce neovim svgo live-server backslide decktape @vue/cli'
   if command -v yarn >/dev/null 2>&1; then
     yarn global add $YARN_PACKAGES
     yarn global upgrade
