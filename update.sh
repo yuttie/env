@@ -28,7 +28,7 @@ fi
 
 # Python
 if is_specified python; then
-  PIPX_PACKAGES='poetry'
+  PIPX_PACKAGES='poetry jedi-language-server python-lsp-server ruff'
   if command -v pipx >/dev/null 2>&1; then
     for p in $PIPX_PACKAGES; do
       pipx install $p
