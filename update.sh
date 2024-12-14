@@ -143,6 +143,7 @@ if is_specified rust; then
   '
   CARGO_PACKAGES_FROM_GIT_URL_FOR_STABLE='
     https://github.com/latex-lsp/texlab
+    https://github.com/neovide/neovide
   '
   CARGO_PACKAGES_FOR_STABLE_J1=''
   CARGO_PACKAGES_FOR_NIGHTLY=''
