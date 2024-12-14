@@ -119,6 +119,17 @@ if is_specified rust; then
     rustup component add rustfmt --toolchain nightly
   fi
 
+  # NOTE Some packages are installed via OS managers
+  # - bat
+  # - eza
+  # - fd-find
+  # - git-delta
+  # - hyperfine
+  # - ripgrep
+  # - starship
+  # - watchexec-cli
+  # - websocat
+  # - xsv
   CARGO_PACKAGES_FOR_STABLE='
     bandwhich
     broot
