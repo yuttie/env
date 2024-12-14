@@ -90,10 +90,10 @@ fi
 # Go
 if is_specified go; then
   GO_PACKAGES='
-    github.com/dinedal/textql/...
-    github.com/simeji/jid/cmd/jid
-    github.com/tomnomnom/gron
-    github.com/itchyny/mmv/cmd/mmv
+    github.com/dinedal/textql/...@latest
+    github.com/simeji/jid/cmd/jid@latest
+    github.com/tomnomnom/gron@latest
+    github.com/itchyny/mmv/cmd/mmv@latest
   '
   if command -v go >/dev/null 2>&1; then
     export CGO_CFLAGS="-march=native -O3 -pipe"
