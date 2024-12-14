@@ -119,7 +119,7 @@ if is_specified rust; then
     rustup component add rustfmt --toolchain nightly
   fi
 
-  CARGO_PACKAGES_FOR_STABLE='wasm-pack cargo-generate deno oxipng pastel procs broot sd teip evcxr_repl drill pueue tealdeer bandwhich xh py-spy ripgrep_all rust-script zellij'
+  CARGO_PACKAGES_FOR_STABLE='wasm-pack cargo-generate deno oxipng pastel procs fselect broot sd teip evcxr_repl drill pueue tealdeer bandwhich xh py-spy ripgrep_all rust-script zellij'
   CARGO_PACKAGES_FOR_STABLE_J1=''
   CARGO_PACKAGES_FOR_NIGHTLY=''
   if command -v cargo >/dev/null 2>&1; then
