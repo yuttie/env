@@ -145,12 +145,12 @@ if is_specified rust; then
   CARGO_PACKAGES_FOR_NIGHTLY=''
   if command -v cargo >/dev/null 2>&1; then
     if [ -n "$CARGO_PACKAGES_FOR_STABLE" ]; then
-      cargo uninstall $CARGO_PACKAGES_FOR_STABLE
+      cargo uninstall --quiet $CARGO_PACKAGES_FOR_STABLE
       cargo install --locked $CARGO_PACKAGES_FOR_STABLE
     fi
 
     if [ -n "$CARGO_PACKAGES_FOR_STABLE_J1" ]; then
-      cargo uninstall $CARGO_PACKAGES_FOR_STABLE_J1
+      cargo uninstall --quiet $CARGO_PACKAGES_FOR_STABLE_J1
       cargo install --locked -j1 $CARGO_PACKAGES_FOR_STABLE_J1
     fi
 
@@ -161,7 +161,7 @@ if is_specified rust; then
     fi
 
     # Packages which need special treatment
-    cargo uninstall texlab
+    cargo uninstall --quiet texlab
     cargo install --locked --git https://github.com/latex-lsp/texlab.git
   fi
 fi
