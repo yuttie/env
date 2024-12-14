@@ -130,6 +130,7 @@ if is_specified rust; then
     broot
     sd
     teip
+    monolith
     evcxr_repl
     drill
     pueue
