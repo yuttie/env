@@ -90,6 +90,7 @@ fi
 # Go
 if is_specified go; then
   GO_PACKAGES='
+    github.com/rhysd/vim-startuptime@latest
     github.com/dinedal/textql/...@latest
     github.com/simeji/jid/cmd/jid@latest
     github.com/tomnomnom/gron@latest
