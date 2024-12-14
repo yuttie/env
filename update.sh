@@ -136,6 +136,8 @@ if is_specified rust; then
     cargo-generate
     deno
     drill
+    dua-cli
+    du-dust
     evcxr_repl
     fselect
     grex
