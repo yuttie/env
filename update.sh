@@ -129,6 +129,7 @@ if is_specified rust; then
     fselect
     grex
     monolith
+    navi
     nu
     oxipng
     pastel
