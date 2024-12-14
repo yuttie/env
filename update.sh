@@ -43,7 +43,24 @@ fi
 
 # Node.js
 if is_specified nodejs; then
-  NPM_PACKAGES='pyright bash-language-server vscode-langservers-extracted dockerfile-language-server-nodejs sql-language-server typescript typescript-language-server vim-language-server vls vsce neovim svgo live-server backslide decktape @vue/cli'
+  NPM_PACKAGES='
+    pyright
+    bash-language-server
+    vscode-langservers-extracted
+    dockerfile-language-server-nodejs
+    sql-language-server
+    typescript
+    typescript-language-server
+    vim-language-server
+    vls
+    vsce
+    neovim
+    svgo
+    live-server
+    backslide
+    decktape
+    @vue/cli
+  '
   if command -v npm >/dev/null 2>&1; then
     NPM_CONFIG_LOGLEVEL=error npm install --global --no-fund --no-audit $NPM_PACKAGES
     NPM_CONFIG_LOGLEVEL=error npm upgrade --global --no-fund --no-audit
