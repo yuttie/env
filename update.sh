@@ -28,7 +28,7 @@ fi
 
 # Python
 if is_specified python; then
-  PIPX_PACKAGES='poetry jedi-language-server python-lsp-server ruff'
+  PIPX_PACKAGES='poetry basedpyright jedi-language-server python-lsp-server ruff'
   if command -v pipx >/dev/null 2>&1; then
     for p in $PIPX_PACKAGES; do
       pipx install $p
@@ -44,7 +44,6 @@ fi
 # Node.js
 if is_specified nodejs; then
   NPM_PACKAGES='
-    pyright
     bash-language-server
     vscode-langservers-extracted
     dockerfile-language-server-nodejs
