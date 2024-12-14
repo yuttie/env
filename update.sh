@@ -141,28 +141,45 @@ if is_specified rust; then
     rust-script
     zellij
   '
+  CARGO_PACKAGES_FROM_GIT_URL_FOR_STABLE='
+    https://github.com/latex-lsp/texlab
+  '
   CARGO_PACKAGES_FOR_STABLE_J1=''
   CARGO_PACKAGES_FOR_NIGHTLY=''
   if command -v cargo >/dev/null 2>&1; then
     if [ -n "$CARGO_PACKAGES_FOR_STABLE" ]; then
       cargo uninstall --quiet $CARGO_PACKAGES_FOR_STABLE
-      cargo install --locked $CARGO_PACKAGES_FOR_STABLE
+      for pkg in $CARGO_PACKAGES_FOR_STABLE; do
+        echo -n "Installing $pkg: "
+        cargo install --locked --quiet $pkg && echo "OK" || echo "Error: $?"
+      done
     fi
 
     if [ -n "$CARGO_PACKAGES_FOR_STABLE_J1" ]; then
       cargo uninstall --quiet $CARGO_PACKAGES_FOR_STABLE_J1
-      cargo install --locked -j1 $CARGO_PACKAGES_FOR_STABLE_J1
+      for pkg in $CARGO_PACKAGES_FOR_STABLE_J1; do
+        echo -n "Installing $pkg: "
+        cargo install --locked --quiet -j1 $pkg && echo "OK" || echo "Error: $?"
+      done
     fi
 
     # Run `rustup toolchain install nightly` in advance
     if [ -n "$CARGO_PACKAGES_FOR_NIGHTLY" ]; then
       cargo +nightly uninstall --quiet $CARGO_PACKAGES_FOR_NIGHTLY
-      cargo +nightly install --locked --quiet $CARGO_PACKAGES_FOR_NIGHTLY
+      for pkg in $CARGO_PACKAGES_FOR_NIGHTLY; do
+        echo -n "Installing $pkg: "
+        cargo +nightly install --locked --quiet $pkg && echo "OK" || echo "Error: $?"
+      done
     fi
 
-    # Packages which need special treatment
-    cargo uninstall --quiet texlab
-    cargo install --locked --git https://github.com/latex-lsp/texlab.git
+    if [ -n "$CARGO_PACKAGES_FROM_GIT_URL_FOR_STABLE" ]; then
+      for url in $CARGO_PACKAGES_FROM_GIT_URL_FOR_STABLE; do
+        pkg="${url##*/}"
+        cargo uninstall --quiet $pkg
+        echo -n "Installing $pkg: "
+        cargo install --locked --quiet --git $url && echo "OK" || echo "Error: $?"
+      done
+    fi
   fi
 fi
 
