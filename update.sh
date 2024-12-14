@@ -131,6 +131,7 @@ if is_specified rust; then
     sd
     teip
     monolith
+    grex
     evcxr_repl
     drill
     pueue
