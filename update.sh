@@ -102,7 +102,7 @@ if is_specified go; then
     export CGO_FFLAGS="-march=native -O3 -pipe"
     export GOAMD64="v3"
     for p in $GO_PACKAGES; do
-      go get -u "$p"
+      go install "$p"
     done
   fi
 fi
