@@ -29,9 +29,9 @@ fi
 # Python
 if is_specified python; then
   PIPX_PACKAGES='
-    poetry
     basedpyright
     jedi-language-server
+    poetry
     python-lsp-server
     ruff
   '
@@ -50,20 +50,20 @@ fi
 # Node.js
 if is_specified nodejs; then
   NPM_PACKAGES='
+    backslide
     bash-language-server
-    vscode-langservers-extracted
+    decktape
     dockerfile-language-server-nodejs
+    live-server
+    neovim
     sql-language-server
+    svgo
     typescript
     typescript-language-server
     vim-language-server
     vls
     vsce
-    neovim
-    svgo
-    live-server
-    backslide
-    decktape
+    vscode-langservers-extracted
     @vue/cli
   '
   if command -v npm >/dev/null 2>&1; then
@@ -75,10 +75,10 @@ fi
 # Julia
 if is_specified julia; then
   JULIA_PACKAGES='
-    Gadfly
-    CSV
     Cairo
+    CSV
     Fontconfig
+    Gadfly
   '
   if command -v julia >/dev/null 2>&1; then
     for p in $JULIA_PACKAGES; do
@@ -90,11 +90,11 @@ fi
 # Go
 if is_specified go; then
   GO_PACKAGES='
-    github.com/rhysd/vim-startuptime@latest
     github.com/dinedal/textql/...@latest
+    github.com/itchyny/mmv/cmd/mmv@latest
+    github.com/rhysd/vim-startuptime@latest
     github.com/simeji/jid/cmd/jid@latest
     github.com/tomnomnom/gron@latest
-    github.com/itchyny/mmv/cmd/mmv@latest
   '
   if command -v go >/dev/null 2>&1; then
     export CGO_CFLAGS="-march=native -O3 -pipe"
@@ -120,27 +120,27 @@ if is_specified rust; then
   fi
 
   CARGO_PACKAGES_FOR_STABLE='
-    wasm-pack
+    bandwhich
+    broot
     cargo-generate
     deno
+    drill
+    evcxr_repl
+    fselect
+    grex
+    monolith
     oxipng
     pastel
     procs
-    fselect
-    broot
-    sd
-    teip
-    monolith
-    grex
-    evcxr_repl
-    drill
     pueue
-    tealdeer
-    bandwhich
-    xh
     py-spy
     ripgrep_all
     rust-script
+    sd
+    tealdeer
+    teip
+    wasm-pack
+    xh
     zellij
   '
   CARGO_PACKAGES_FROM_GIT_URL_FOR_STABLE='
