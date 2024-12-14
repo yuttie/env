@@ -74,7 +74,12 @@ fi
 
 # Julia
 if is_specified julia; then
-  JULIA_PACKAGES='Gadfly CSV Cairo Fontconfig'
+  JULIA_PACKAGES='
+    Gadfly
+    CSV
+    Cairo
+    Fontconfig
+  '
   if command -v julia >/dev/null 2>&1; then
     for p in $JULIA_PACKAGES; do
       julia --eval "using Pkg; Pkg.add(\"$p\")"
