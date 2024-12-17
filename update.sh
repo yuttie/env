@@ -135,6 +135,7 @@ if is_specified rust; then
     broot
     cargo-generate
     deno
+    dprint
     drill
     dua-cli
     du-dust
