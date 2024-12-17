@@ -54,6 +54,7 @@ if is_specified nodejs; then
     bash-language-server
     decktape
     dockerfile-language-server-nodejs
+    json-schema-to-typescript
     live-server
     neovim
     sql-language-server
