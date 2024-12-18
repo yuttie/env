@@ -34,6 +34,7 @@ if is_specified python; then
     poetry
     python-lsp-server
     ruff
+    uv
   '
   if command -v pipx >/dev/null 2>&1; then
     for p in $PIPX_PACKAGES; do
