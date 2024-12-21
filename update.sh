@@ -28,18 +28,18 @@ fi
 
 # Python
 if is_specified python; then
-  PIPX_PACKAGES='
+  UV_PACKAGES='
     basedpyright
     jedi-language-server
     poetry
     python-lsp-server
     ruff
   '
-  if command -v pipx >/dev/null 2>&1; then
-    for p in $PIPX_PACKAGES; do
-      pipx install $p
+  if command -v uv >/dev/null 2>&1; then
+    for p in $UV_PACKAGES; do
+      uv tool install $p
     done
-    pipx upgrade-all
+    uv tool upgrade --all
   fi
   if command -v poetry >/dev/null 2>&1; then
     poetry completions fish > ~/.config/fish/completions/poetry.fish
