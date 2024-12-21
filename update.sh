@@ -34,7 +34,6 @@ if is_specified python; then
     poetry
     python-lsp-server
     ruff
-    uv
   '
   if command -v pipx >/dev/null 2>&1; then
     for p in $PIPX_PACKAGES; do
@@ -197,6 +196,11 @@ if is_specified rust; then
         cargo install --locked --quiet --git $url && echo "OK" || echo "Error: $?"
       done
     fi
+
+    url="https://github.com/astral-sh/uv"
+    pkg="uv"
+    echo -n "Installing $pkg: "
+    cargo install --quiet --git $url $pkg && echo "OK" || echo "Error: $?"
   fi
 fi
 
