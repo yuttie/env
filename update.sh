@@ -13,7 +13,7 @@ is_specified() {
 
 # TeX
 if is_specified tex; then
-  for TLMGR in /usr/local/texlive/2024/bin/{x86_64-linux,x86_64-darwin}/tlmgr; do
+  for TLMGR in /usr/local/texlive/2025/bin/{x86_64-linux,x86_64-darwin}/tlmgr; do
     if [ -f $TLMGR -a -x $TLMGR ]; then
       break
     else
