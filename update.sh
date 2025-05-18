@@ -170,14 +170,14 @@ if is_specified rust; then
     if [ -n "$CARGO_PACKAGES_FOR_STABLE" ]; then
       for pkg in $CARGO_PACKAGES_FOR_STABLE; do
         echo -n "Installing $pkg: "
-        cargo install --locked --quiet $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
+        CC=clang cargo install --locked --quiet $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
       done
     fi
 
     if [ -n "$CARGO_PACKAGES_FOR_STABLE_J1" ]; then
       for pkg in $CARGO_PACKAGES_FOR_STABLE_J1; do
         echo -n "Installing $pkg: "
-        cargo install --locked --quiet -j1 $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
+        CC=clang cargo install --locked --quiet -j1 $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
       done
     fi
 
@@ -185,7 +185,7 @@ if is_specified rust; then
     if [ -n "$CARGO_PACKAGES_FOR_NIGHTLY" ]; then
       for pkg in $CARGO_PACKAGES_FOR_NIGHTLY; do
         echo -n "Installing $pkg: "
-        cargo +nightly install --locked --quiet $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
+        CC=clang cargo +nightly install --locked --quiet $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
       done
     fi
 
@@ -193,14 +193,14 @@ if is_specified rust; then
       for url in $CARGO_PACKAGES_FROM_GIT_URL_FOR_STABLE; do
         pkg="${url##*/}"
         echo -n "Installing $pkg: "
-        cargo install --locked --quiet --git $url && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
+        CC=clang cargo install --locked --quiet --git $url && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
       done
     fi
 
     url="https://github.com/astral-sh/uv"
     pkg="uv"
     echo -n "Installing $pkg: "
-    cargo install --quiet --git $url $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
+    CC=clang cargo install --quiet --git $url $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
   fi
 fi
 
