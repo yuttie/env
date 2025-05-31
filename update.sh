@@ -62,10 +62,11 @@ if is_specified nodejs; then
     typescript
     typescript-language-server
     vim-language-server
-    vls
     vsce
     vscode-langservers-extracted
     @vue/cli
+    @vue/language-server@2
+    @vue/typescript-plugin@2
   '
   if command -v npm >/dev/null 2>&1; then
     NPM_CONFIG_LOGLEVEL=error npm install --global --no-fund --no-audit $NPM_PACKAGES
