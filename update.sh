@@ -133,6 +133,7 @@ if is_specified rust; then
   # - websocat
   # - xsv
   CARGO_PACKAGES_FOR_STABLE='
+    bacon
     bandwhich
     broot
     cargo-generate
