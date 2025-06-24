@@ -155,6 +155,7 @@ if is_specified rust; then
     ripgrep_all
     rust-script
     sd
+    systemfd
     tealdeer
     teip
     wasm-pack
