@@ -135,9 +135,11 @@ if is_specified rust; then
   CARGO_PACKAGES_FOR_STABLE='
     bacon
     bandwhich
+    binocle
     broot
     cargo-generate
     deno
+    diskus
     dprint
     drill
     dua-cli
@@ -145,9 +147,11 @@ if is_specified rust; then
     evcxr_repl
     fselect
     grex
+    hexyl
     monolith
     navi
     nu
+    numbat-cli
     oxipng
     pastel
     procs
@@ -159,6 +163,7 @@ if is_specified rust; then
     systemfd
     tealdeer
     teip
+    vivid
     wasm-pack
     xh
     zellij
