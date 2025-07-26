@@ -169,6 +169,22 @@ if is_specified rust; then
   '
   CARGO_PACKAGES_FOR_STABLE_J1=''
   CARGO_PACKAGES_FOR_NIGHTLY=''
+
+  # Use Clang for build
+  export CC="clang"
+  export CPP="clang-cpp"
+  export CXX="clang++"
+  export AR="llvm-ar"
+  export NM="llvm-nm"
+  export RANLIB="llvm-ranlib"
+  export LD="lld"
+  # Enable -O3 and LTO
+  export COMMON_FLAGS="-march=native -O3 -pipe -flto=thin"
+  export CFLAGS="${COMMON_FLAGS}"
+  export CXXFLAGS="${COMMON_FLAGS}"
+  export LDFLAGS="-Wl,-O2"
+  export RUSTFLAGS="-C target-cpu=native -C opt-level=3 -Clinker=clang -Clinker-plugin-lto -Clink-arg=-fuse-ld=lld"
+
   if command -v cargo >/dev/null 2>&1; then
     if [ -n "$CARGO_PACKAGES_FOR_STABLE" ]; then
       for pkg in $CARGO_PACKAGES_FOR_STABLE; do
@@ -205,6 +221,8 @@ if is_specified rust; then
     echo -n "Installing $pkg: "
     CC=clang cargo install --quiet --git $url $pkg && echo "$(tput setaf 10)OK$(tput sgr0)" || echo "$(tput setaf 9)Error: $?$(tput sgr0)"
   fi
+
+  unset CC CPP CXX AR NM RANLIB LD COMMON_FLAGS CFLAGS CXXFLAGS LDFLAGS RUSTFLAGS
 fi
 
 # Fish
