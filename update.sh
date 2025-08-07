@@ -146,6 +146,7 @@ if is_specified rust; then
     du-dust
     evcxr_repl
     fselect
+    git-cliff
     grex
     hexyl
     monolith
