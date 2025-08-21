@@ -158,6 +158,7 @@ if is_specified rust; then
     procs
     pueue
     py-spy
+    qsv
     ripgrep_all
     rust-script
     sd
@@ -167,6 +168,7 @@ if is_specified rust; then
     teip
     vivid
     wasm-pack
+    xan
     xh
     zellij
   '
